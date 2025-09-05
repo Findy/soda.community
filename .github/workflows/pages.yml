@@ -6,13 +6,29 @@ permissions:
   contents: read
   pages: write
   id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Pages
-        run: mkdir site && cp README.md site/index.md
+      - name: Build minimal HTML from README
+        run: |
+          mkdir -p site
+          cp README.md site/README.md
+          {
+            echo '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+            echo '<title>SODA Community</title>'
+            echo '<style>body{max-width:800px;margin:40px auto;padding:0 16px;font:16px/1.6 system-ui;} pre{white-space:pre-wrap;}</style>'
+            echo '<article>'
+            echo '<h1>SODA Community</h1>'
+            echo '<p><em>This page is auto-generated from README.md</em></p>'
+            echo '<hr>'
+            echo '<pre>'
+            sed 's/&/\&amp;/g; s/</\&lt;/g' README.md
+            echo '</pre>'
+            echo '</article>'
+          } > site/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
