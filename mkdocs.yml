@@ -1,4 +1,5 @@
 site_name: SODA Community
+docs_dir: deck
 theme:
   name: material
 nav:

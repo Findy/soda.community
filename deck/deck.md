@@ -78,7 +78,7 @@ SODAの特徴:
 
 ## プロジェクトの特徴（Product box）
 
-![SODA Product Box](./SODA_Product_box.png)
+![SODA Product Box](images/SODA_Product_box.png)
 
 **キャッチフレーズ候補**
 1. 組織の可能性を可視化する地図。SODAでエンジニアの視座を高めよう  
