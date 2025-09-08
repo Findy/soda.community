@@ -1,4 +1,4 @@
-name: Deploy to Pages
+name: Deploy Inception Deck to Pages
 on:
   push:
     branches: [main]
@@ -12,27 +12,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build minimal HTML from README
+
+      # 必要なツールをセットアップ（pandocを使ってMD→HTML変換）
+      - name: Install pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+
+      # Markdown を HTML に変換
+      - name: Build site
         run: |
-          mkdir -p site
-          cp README.md site/README.md
-          {
-            echo '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-            echo '<title>SODA Community</title>'
-            echo '<style>body{max-width:800px;margin:40px auto;padding:0 16px;font:16px/1.6 system-ui;} pre{white-space:pre-wrap;}</style>'
-            echo '<article>'
-            echo '<h1>SODA Community</h1>'
-            echo '<p><em>This page is auto-generated from README.md</em></p>'
-            echo '<hr>'
-            echo '<pre>'
-            sed 's/&/\&amp;/g; s/</\&lt;/g' README.md
-            echo '</pre>'
-            echo '</article>'
-          } > site/index.html
+          mkdir -p site/deck
+          pandoc README.md -o site/index.html --standalone --metadata title="SODA Community"
+          pandoc deck/index.md -o site/deck/index.html --standalone --metadata title="SODA Inception Deck"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
