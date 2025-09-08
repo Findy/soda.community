@@ -1,2 +1,5 @@
-# macOS system files
+# macOS
 .DS_Store
+
+# Python / MkDocs
+site/

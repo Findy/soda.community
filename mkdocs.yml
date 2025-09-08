@@ -1,0 +1,6 @@
+site_name: SODA Community
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Inception Deck: deck.md

@@ -1,7 +1,8 @@
-name: Deploy Inception Deck to Pages
+name: Build & Deploy MkDocs (Material) to Pages
 on:
   push:
     branches: [main]
+
 permissions:
   contents: read
   pages: write
@@ -12,18 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      # 必要なツールをセットアップ（pandocを使ってMD→HTML変換）
-      - name: Install pandoc
-        run: sudo apt-get update && sudo apt-get install -y pandoc
-
-      # Markdown を HTML に変換
-      - name: Build site
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install MkDocs + Material
         run: |
-          mkdir -p site/deck
-          pandoc README.md -o site/index.html --standalone --metadata title="SODA Community"
-          pandoc deck/index.md -o site/deck/index.html --standalone --metadata title="SODA Inception Deck"
-
+          pip install --upgrade pip
+          pip install mkdocs-material
+      - name: Build site
+        run: mkdocs build --site-dir site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
