@@ -5,6 +5,9 @@ theme:
   language: ja
   logo: assets/logo.svg
   favicon: assets/favicon.png
+
+extra_css:
+  - stylesheets/extra.css
 nav:
   - Home: index.md
   - Inception Deck: deck.md
