@@ -8,20 +8,12 @@ theme:
   language: ja
   logo: assets/logo.svg
   favicon: assets/favicon.png
+  custom_dir: deck/overrides
 
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/soda-community
-
-plugins:
-  - social:
-      cards: true
-      cards_layout_options:
-        background_color: "#2e2e2e"
-        color: "#ffffff"
-  - meta:
-      meta_file: '**/.meta.yml'
 
 extra_css:
   - stylesheets/extra.css
