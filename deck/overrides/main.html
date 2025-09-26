@@ -12,8 +12,14 @@
   <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}">
   <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ config.site_description }}{% endif %}">
   <meta property="og:image" content="{{ config.site_url }}assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="{{ config.site_name }}">
   <meta property="og:locale" content="ja_JP">
+
+  <!-- Facebook App ID (optional for websites, but removes warning) -->
+  <!-- Replace with your actual app_id if you have one, or remove this line -->
+  <meta property="fb:app_id" content="1234567890">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
