@@ -8,7 +8,7 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ config.site_url }}{{ page.url }}">
+  <meta property="og:url" content="{{ config.site_url }}{% if page.url %}{{ page.url }}{% endif %}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}">
   <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ config.site_description }}{% endif %}">
   <meta property="og:image" content="{{ config.site_url }}assets/og-image.png">
@@ -17,11 +17,11 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="{{ config.site_url }}{{ page.url }}">
+  <meta name="twitter:url" content="{{ config.site_url }}{% if page.url %}{{ page.url }}{% endif %}">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}">
   <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ config.site_description }}{% endif %}">
   <meta name="twitter:image" content="{{ config.site_url }}assets/og-image.png">
 
   <!-- Additional Meta Tags -->
-  <link rel="canonical" href="{{ config.site_url }}{{ page.url }}">
+  <link rel="canonical" href="{{ config.site_url }}{% if page.url %}{{ page.url }}{% endif %}">
 {% endblock %}
