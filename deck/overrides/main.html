@@ -1,17 +1,27 @@
 {% extends "base.html" %}
 
 {% block extrahead %}
+  {{ super() }}
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="{{ config.site_name }}">
+  <meta name="description" content="{{ config.site_description }}">
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ config.site_url }}">
-  <meta property="og:title" content="{{ config.site_name }}">
-  <meta property="og:description" content="{{ config.site_description }}">
-  <meta property="og:image" content="{{ config.site_url }}assets/favicon.png">
+  <meta property="og:url" content="{{ config.site_url }}{{ page.url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ config.site_description }}{% endif %}">
+  <meta property="og:image" content="{{ config.site_url }}assets/og-image.png">
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:locale" content="ja_JP">
 
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="{{ config.site_url }}">
-  <meta property="twitter:title" content="{{ config.site_name }}">
-  <meta property="twitter:description" content="{{ config.site_description }}">
-  <meta property="twitter:image" content="{{ config.site_url }}assets/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ config.site_url }}{{ page.url }}">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}">
+  <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ config.site_description }}{% endif %}">
+  <meta name="twitter:image" content="{{ config.site_url }}assets/og-image.png">
+
+  <!-- Additional Meta Tags -->
+  <link rel="canonical" href="{{ config.site_url }}{{ page.url }}">
 {% endblock %}
