@@ -1,0 +1,23 @@
+meta:
+  - property: og:type
+    content: website
+  - property: og:site_name
+    content: SODA Community
+  - property: og:title
+    content: SODA Community - ソフトウェア開発コミュニティ
+  - property: og:description
+    content: ソフトウェア開発における品質向上と効率化を目指すコミュニティ
+  - property: og:image
+    content: https://soda.community/assets/favicon.png
+  - property: og:url
+    content: https://soda.community
+  - name: twitter:card
+    content: summary_large_image
+  - name: twitter:site
+    content: "@sodacommunity"
+  - name: twitter:title
+    content: SODA Community
+  - name: twitter:description
+    content: ソフトウェア開発における品質向上と効率化を目指すコミュニティ
+  - name: twitter:image
+    content: https://soda.community/assets/favicon.png

@@ -1,6 +1,7 @@
 site_name: SODA Community
 site_url: https://soda.community
 site_description: SODA Community - ソフトウェア開発における品質向上と効率化を目指すコミュニティ
+site_author: SODA Community
 docs_dir: deck
 theme:
   name: material
@@ -12,25 +13,15 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/soda-community
-  meta:
-    - name: og:type
-      content: website
-    - name: og:title
-      content: SODA Community
-    - name: og:description
-      content: ソフトウェア開発における品質向上と効率化を目指すコミュニティ
-    - name: og:image
-      content: https://soda.community/assets/favicon.png
-    - name: og:url
-      content: https://soda.community
-    - name: twitter:card
-      content: summary_large_image
-    - name: twitter:title
-      content: SODA Community
-    - name: twitter:description
-      content: ソフトウェア開発における品質向上と効率化を目指すコミュニティ
-    - name: twitter:image
-      content: https://soda.community/assets/favicon.png
+
+plugins:
+  - social:
+      cards: true
+      cards_layout_options:
+        background_color: "#2e2e2e"
+        color: "#ffffff"
+  - meta:
+      meta_file: '**/.meta.yml'
 
 extra_css:
   - stylesheets/extra.css
