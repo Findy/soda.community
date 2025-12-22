@@ -13,7 +13,8 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/soda-community
+      link: https://github.com/Findy/soda.community
+      name: GitHub
 
 extra_css:
   - stylesheets/extra.css

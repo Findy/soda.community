@@ -4,3 +4,8 @@
     height: 2rem !important;  /* 32px */
     width: auto !important;
 }
+
+/* フッターのソーシャルアイコンを大きく */
+.md-social__link {
+    transform: scale(1.5) !important;
+}
