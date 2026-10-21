@@ -1,0 +1,17 @@
+name: Gitleaks Scan
+
+on:
+  schedule:
+    - cron: "0 0 * * 1" # 毎週月曜 09:00 JST
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  gitleaks:
+    name: Gitleaks Scan
+    uses: Findy/Yang/.github/workflows/gitleaks-scan.yml@c576d198865b42e655d3bc34bbd42786052611b9 # main
+    permissions:
+      contents: read
+    secrets:
+      slack_webhook_url: ${{ secrets.GITLEAKS_SLACK_WEBHOOK_URL }}
